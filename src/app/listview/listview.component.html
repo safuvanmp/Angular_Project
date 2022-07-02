@@ -1,0 +1,80 @@
+<mat-toolbar class="clsmat" color="primary">
+  <span>AngularTask</span>
+
+  <div class="cls-toggle-view">
+    <button (click) = "gridview()">gridview</button>
+    <button (click) = "home()">Back To Home</button>
+    <!-- <button (click) = "gridview()">ListView</button> -->
+
+  </div>
+</mat-toolbar>
+<div class="row" style="overflow-x:auto;">
+  <div class="col-12">
+
+<table style="width:50px" >
+        <tr>
+            <th>State</th>
+            <th>confirmed</th>
+            <th>recovered</th>
+            <th>active</th>
+            <th>deceased</th>
+            <th>total_obs</th>
+            <th>hospital_obs</th>
+            <th>home_obs</th>
+            <th>hospital_today</th>
+        </tr>
+        <tr style="height:20px" *ngFor="let d of datas2">
+            <td>{{d.state}}</td>
+            <td>{{d.confirmed}}</td>
+            <td>{{d.recovered}}</td>
+            <td>{{d.active}}</td>
+            <td>{{d.deceased}}</td>
+            <td>{{d.total_obs}}</td>
+            <td>{{d.hospital_obs}}</td>
+            <td>{{d.home_obs}}</td>
+            <td>{{d.hospital_today}}</td>
+        </tr>
+    </table>
+  </div>
+</div>
+    <button type="button" (click)="fileDownload()">Export</button>
+
+    <div class="row" style="overflow-x:auto;">
+      <div class="col-12">
+<table style="width:50px" >
+  <h2>Delta data</h2>
+  <tr>
+      <th>State</th>
+      <th>confirmed</th>
+      <th>recovered</th>
+      <th>active</th>
+      <th>deceased</th>
+      <th>total_obs</th>
+      <th>hospital_obs</th>
+      <th>home_obs</th>
+      <th>hospital_today</th>
+  </tr>
+  <tr style="height:20px" *ngFor="let d of deltas2">
+      <td>{{d.state}}</td>
+      <td>{{d.confirmed}}</td>
+      <td>{{d.recovered}}</td>
+      <td>{{d.active}}</td>
+      <td>{{d.deceased}}</td>
+      <td>{{d.total_obs}}</td>
+      <td>{{d.hospital_obs}}</td>
+      <td>{{d.home_obs}}</td>
+      <td>{{d.hospital_today}}</td>
+  </tr>
+</table>
+      </div>
+    </div>
+<button type="button" (click)="fileDownloadDelta()">Export Delta Data</button>
+
+<table  >
+  <tr>
+      <th>Last updates</th>
+  <tr >
+      <td>{{last[0]}}</td>
+
+  </tr>
+</table>

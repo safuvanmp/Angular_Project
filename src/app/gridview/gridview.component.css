@@ -1,0 +1,38 @@
+
+.mat-card-header{
+  color: green;
+  padding:5px !important;
+}
+.mat-card{
+  background-color: lightgrey;
+}
+.clscard
+{
+    margin-top: 50px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  color: red;
+}
+
+h2{
+  text-align: center;
+  color:red;
+}
+
+.clshead{
+  color:blue
+}
+.cls-toggle-view{
+  margin-left: auto;
+  margin-top: 20px;
+}
+example-button-row{
+  margin: auto;
+}

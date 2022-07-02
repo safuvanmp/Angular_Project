@@ -1,0 +1,22 @@
+.cls-toggle-view{
+  margin-left: auto;
+
+}
+button
+{
+	background-color: rgba(6, 128, 243, 0.685);
+	color: whitesmoke;
+
+}
+button:hover
+{
+ background-color: green;
+}
+
+span{
+	text-align: center;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: xx-large;
+	font: bolder;
+}
+

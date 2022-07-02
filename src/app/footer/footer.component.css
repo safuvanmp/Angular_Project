@@ -1,0 +1,16 @@
+ul
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+footer
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightblue;
+    color: white;
+    text-align: center;
+}

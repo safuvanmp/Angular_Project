@@ -1,0 +1,109 @@
+ <mat-toolbar class="clsmat" color="primary">
+  <span>AngularTask</span>
+
+  <div class="cls-toggle-view">
+    <button (click) = "login()">Tableview</button>
+    <button (click) = "home()"> Home</button>
+
+  </div>
+</mat-toolbar>
+ <div class="example-button-row">
+  <button mat-raised-button color="primary" (click)="downloadFile()">Export</button>
+<button type="button" (click)="fileDownloadDelta()">Export Delta Data</button>
+</div>
+ <div class="clscard" *ngFor="let data of datas2">
+  <mat-card class="clsmat">
+
+<mat-card-header>
+  <mat-card-title class="myone"> <mat-card-title>{{data.state}}</mat-card-title>
+</mat-card-title>
+
+</mat-card-header>
+<mat-card-content align="bottom" class="myone1">
+  <p>
+    confirmed :- {{data.confirmed}}
+  </p>
+  <p>
+    recovered :- {{data.recovered}}
+  </p>
+  <p>
+    active :- {{data.active}}
+  </p>
+  <p>
+    deceased :- {{data.deceased}}
+  </p>
+  <p>
+    total observation :- {{data.total_obs}}
+  </p>
+  <p>
+    hospital observation :-{{data.hospital_obs}}
+  </p>
+  <p>
+    home observation :- {{data.home_obs}}
+  </p>
+  <p>
+    hospital today :- {{data.hospital_today}}
+  </p>
+</mat-card-content>
+
+  </mat-card>
+
+</div>
+<div class="clshead">
+<h2>Delta Data</h2>
+</div>
+<div class="clscard" *ngFor="let d of deltas2">
+  <mat-card class="clsmat">
+
+<mat-card-header>
+  <mat-card-title class="myone"> <mat-card-title>{{d.state}}</mat-card-title>
+</mat-card-title>
+
+</mat-card-header>
+<mat-card-content align="bottom" class="myone1">
+  <p>
+    confirmed :- {{d.confirmed}}
+  </p>
+  <p>
+    recovered :- {{d.recovered}}
+  </p>
+  <p>
+    active :- {{d.active}}
+  </p>
+  <p>
+    deceased :- {{d.deceased}}
+  </p>
+  <p>
+    total observation :- {{d.total_obs}}
+  </p>
+  <p>
+    hospital observation :-{{d.hospital_obs}}
+  </p>
+  <p>
+    home observation :- {{d.home_obs}}
+  </p>
+  <p>
+    hospital today :- {{d.hospital_today}}
+  </p>
+</mat-card-content>
+
+  </mat-card>
+
+</div>
+
+<div class="clscard">
+  <mat-card class="clsmat">
+
+    <mat-card-header>
+      <mat-card-title class="myone"> <mat-card-title>Last Updated</mat-card-title>
+    </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content align="bottom" class="myone1">
+      <p>
+        {{last[0]}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>
