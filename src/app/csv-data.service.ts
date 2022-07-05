@@ -23,11 +23,8 @@ this.csvRows =[]
 }
 
 csvHeaderMaker(data:any){
-
     const headers = Object.keys(data);
-
 console.log(headers)
-// this.csvRows= [];
  this.csvRows.push(headers.join(','));
 }
 

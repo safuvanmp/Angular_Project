@@ -4,12 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { data } from '../data';
 import { DataAccessService } from '../data-access.service';
 import { CsvDataService } from '../csv-data.service';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+
 @Component({
   selector: 'app-listview',
   templateUrl: './listview.component.html',
