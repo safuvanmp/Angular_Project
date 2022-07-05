@@ -16,6 +16,7 @@ import {MatTableModule} from '@angular/material/table';
 import { HomeComponent } from './home/home.component';
 import { ListviewModule } from './listview/listview/listview.module';
 import { FooterComponent } from './footer/footer.component';
+import { CsvDataService } from './csv-data.service';
 const routes : Routes =[
   {
     path: 'home',
@@ -57,7 +58,8 @@ const routes : Routes =[
   ],
   providers: [
     RouterServiceService,
-    DataAccessService
+    DataAccessService,
+    CsvDataService
   ],
   bootstrap: [AppComponent]
 })

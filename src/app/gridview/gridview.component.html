@@ -6,10 +6,12 @@
     <button (click) = "home()"> Home</button>
 
   </div>
+
 </mat-toolbar>
  <div class="example-button-row">
-  <button mat-raised-button color="primary" (click)="downloadFile()">Export</button>
-<button type="button" (click)="fileDownloadDelta()">Export Delta Data</button>
+  <button mat-raised-button color="primary" (click)="export()" >Export</button>
+
+<button type="button" (click)="deltaData()">Export Delta Data</button>
 </div>
  <div class="clscard" *ngFor="let data of datas2">
   <mat-card class="clsmat">
@@ -21,28 +23,28 @@
 </mat-card-header>
 <mat-card-content align="bottom" class="myone1">
   <p>
-    confirmed :- {{data.confirmed}}
+    confirmed : {{data.confirmed}}
   </p>
   <p>
-    recovered :- {{data.recovered}}
+    recovered : {{data.recovered}}
   </p>
   <p>
-    active :- {{data.active}}
+    active : {{data.active}}
   </p>
   <p>
-    deceased :- {{data.deceased}}
+    deceased : {{data.deceased}}
   </p>
   <p>
-    total observation :- {{data.total_obs}}
+    total observation : {{data.total_obs}}
   </p>
   <p>
-    hospital observation :-{{data.hospital_obs}}
+    hospital observation : {{data.hospital_obs}}
   </p>
   <p>
-    home observation :- {{data.home_obs}}
+    home observation : {{data.home_obs}}
   </p>
   <p>
-    hospital today :- {{data.hospital_today}}
+    hospital today : {{data.hospital_today}}
   </p>
 </mat-card-content>
 
@@ -62,28 +64,28 @@
 </mat-card-header>
 <mat-card-content align="bottom" class="myone1">
   <p>
-    confirmed :- {{d.confirmed}}
+    confirmed : {{d.confirmed}}
   </p>
   <p>
-    recovered :- {{d.recovered}}
+    recovered : {{d.recovered}}
   </p>
   <p>
-    active :- {{d.active}}
+    active : {{d.active}}
   </p>
   <p>
-    deceased :- {{d.deceased}}
+    deceased : {{d.deceased}}
   </p>
   <p>
-    total observation :- {{d.total_obs}}
+    total observation : {{d.total_obs}}
   </p>
   <p>
-    hospital observation :-{{d.hospital_obs}}
+    hospital observation : {{d.hospital_obs}}
   </p>
   <p>
-    home observation :- {{d.home_obs}}
+    home observation : {{d.home_obs}}
   </p>
   <p>
-    hospital today :- {{d.hospital_today}}
+    hospital today : {{d.hospital_today}}
   </p>
 </mat-card-content>
 

@@ -1,27 +1,40 @@
 export class data {
-  "confirmed": Number;
-  "recovered": Number;
-  "active": Number;
-  "deceased": Number;
-  "total_obs": Number;
-  "hospital_obs": Number;
-  "home_obs": Number;
-  "hospital_today": Number;
+  "confirmed": number;
+  "recovered": number;
+  "active": number;
+  "deceased": number;
+  "total_obs": number;
+  "hospital_obs": number;
+  "home_obs": number;
+  "hospital_today": number;
   "state": String;
 }
 
 export class delta{
-  "confirmed":Number;
-  "recovered":Number;
-  "active":Number;
-  "deceased":Number;
-  "total_obs":Number;
-  "hospital_obs":Number;
-  "home_obs":Number;
-  "hospital_today":Number;
+  "confirmed": number;
+  "recovered": number;
+  "active": number;
+  "deceased": number;
+  "total_obs": number;
+  "hospital_obs": number;
+  "home_obs": number;
+  "hospital_today": number;
   "state": String;
 }
 
 export class lastUpdated{
   "last_updated":any;
 }
+
+export class covidTotal {
+  "confirmed":"";
+  "recovered":"";
+  "active":"";
+  "deceased":"";
+  "total observation":  string;
+  "hospital observation":  number;
+  "home observation":  number;
+  "hospital today": number;
+  "state":""
+  }
+

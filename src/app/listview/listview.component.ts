@@ -1,9 +1,9 @@
-import { delta, lastUpdated } from './../data';
+import { covidTotal, delta} from './../data';
 import { RouterServiceService } from './../router-service.service';
 import { Component, OnInit } from '@angular/core';
-import { ngxCsv } from 'ngx-csv/ngx-csv';
 import { data } from '../data';
 import { DataAccessService } from '../data-access.service';
+import { CsvDataService } from '../csv-data.service';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -24,11 +24,40 @@ export class ListviewComponent implements OnInit {
   deltas2:Array<delta>=[];
 
   last:Array<delta>;
-
-  constructor(private myserve: DataAccessService, private myroute: RouterServiceService) {
+  csvd: string;
+  csvd2:string;
+  hospob : number;
+  homeobv: number;
+  hosptodaysum: number;
+  hospob1 : number;
+  homeobv1: number;
+  hosptodaysum1: number;
+  totSum = new covidTotal();
+  totSum1 = new covidTotal();
+    headerOfCell={
+      "confirmed":"",
+      "recovered":"",
+      "active":"",
+      "deceased":"",
+      "total observation": "",
+      "hospital observation": "",
+      "home observation": "",
+      "hospital today": "",
+      "state":""
+      }
+  constructor(private myserve: DataAccessService, private myroute: RouterServiceService, private csvdata :CsvDataService) {
    this.datas = [];
    this.deltas =[];
    this.last =[];
+   this.csvd ="";
+   this.csvd2 ="";
+  this.hospob = 0;
+   this.homeobv = 0;
+   this.hosptodaysum = 0;
+   this.hospob1 = 0;
+   this.homeobv1 = 0;
+   this.hosptodaysum1= 0;
+
   }
 
   ngOnInit(): void {
@@ -111,35 +140,62 @@ export class ListviewComponent implements OnInit {
    );
   }
 
-  fileDownload(){
-    var options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: true,
-      title: 'Report data',
-      useBom: true,
-      headers: ["confirmed", "recovered", "active","deceased","total observation","hospital observation","home observation","hospital today","state"]
-    };
+  export(){
+    this.csvdata.csvHeaderMaker(this.headerOfCell);
+      this.hospob=0;
+        this.homeobv =0;
+        this.hosptodaysum =0;
 
-   new ngxCsv(this.datas2, "Report", options);
+for (let i = 0; i < this.datas2.length; i++) {
+        this.csvd = this.csvdata.csvmaker(this.datas2[i]);
+
+        this.hospob = this.hospob + this.datas2[i].hospital_obs;
+        this.homeobv = this.homeobv + this.datas2[i].home_obs;
+        this.hosptodaysum= this.hosptodaysum + this.datas2[i].hospital_today;
+        console.log(this.homeobv);
+}
+
+  this.csvd = this.csvdata.csvmaker(this.headerOfCell);
+this.totSum.confirmed="";
+this.totSum.recovered ="";
+this.totSum.active ="";
+this.totSum.deceased ="";
+this.totSum['total observation']="Total";
+this.totSum['hospital observation']=this.hospob;
+this.totSum['home observation']=this.homeobv;
+this.totSum['hospital today']=this.hosptodaysum;
+this.csvd = this.csvdata.csvmaker(this.totSum);
+this.csvdata.download(this.csvd);
   }
-  fileDownloadDelta(){
-    var options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: true,
-      title: 'Report data',
-      useBom: true,
-      headers: ["confirmed", "recovered", "active","deceased","total observation","hospital observation","home observation","hospital today","state"]
-    };
+  deltaData(){
 
-   new ngxCsv(this.deltas2, "Delta-Report", options);
+    this.csvdata.csvHeaderMaker(this.headerOfCell);
+      this.hospob1=0;
+        this.homeobv1 =0;
+        this.hosptodaysum1 =0;
+
+for (let i = 0; i < this.deltas2.length; i++) {
+        this.csvd2 = this.csvdata.csvmaker(this.deltas[i]);
+
+        this.hospob1 = this.hospob1 + this.deltas2[i].hospital_obs;
+        this.homeobv1 = this.homeobv1 + this.deltas2[i].home_obs;
+        this.hosptodaysum1= this.hosptodaysum1 + this.deltas2[i].hospital_today;
+        console.log(this.homeobv);
+}
+
+this.csvd2 = this.csvdata.csvmaker(this.headerOfCell);
+this.totSum1.confirmed="";
+this.totSum1.recovered ="";
+this.totSum1.active ="";
+this.totSum1.deceased ="";
+this.totSum1['total observation']="Total";
+this.totSum1['hospital observation']=this.hospob1;
+this.totSum1['home observation']=this.homeobv1;
+this.totSum1['hospital today']=this.hosptodaysum1;
+this.csvd2 = this.csvdata.csvmaker(this.totSum1);
+
+this.csvdata.download(this.csvd2);
   }
-
   gridview(){
     this.myroute.routeToDashboard();
   }
